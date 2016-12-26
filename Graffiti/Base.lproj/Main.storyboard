@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="khx-1X-9tZ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Graffiti" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="peN-ys-zSr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60C-Bt-SAp">
+                                <rect key="frame" x="150" y="542" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="YOs-Ou-Rs0"/>
+                                    <constraint firstAttribute="width" constant="75" id="dwr-Uz-gDc"/>
+                                </constraints>
+                                <state key="normal" image="btn_localizar_on"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pdR-5P-EeH">
+                                <rect key="frame" x="177" y="569" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="peN-ys-zSr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2wE-Xg-e17"/>
+                            <constraint firstItem="60C-Bt-SAp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6Sy-l7-l0E"/>
+                            <constraint firstAttribute="trailing" secondItem="peN-ys-zSr" secondAttribute="trailing" id="7GC-TV-grS"/>
+                            <constraint firstItem="peN-ys-zSr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="S4C-uT-n8Y"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="peN-ys-zSr" secondAttribute="bottom" id="TLZ-CG-Lpc"/>
+                            <constraint firstItem="pdR-5P-EeH" firstAttribute="centerX" secondItem="60C-Bt-SAp" secondAttribute="centerX" id="eN2-bS-I6b"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="60C-Bt-SAp" secondAttribute="bottom" constant="50" id="lzh-DT-hQY"/>
+                            <constraint firstItem="pdR-5P-EeH" firstAttribute="centerY" secondItem="60C-Bt-SAp" secondAttribute="centerY" id="mGe-GP-rhe"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Kgf-mp-fdg">
+                        <barButtonItem key="rightBarButtonItem" title="Añadir" id="J7e-2o-NN0">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Le2-iy-hKM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="khx-1X-9tZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="h0R-G2-Twl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20392156859999999" green="0.59607843140000005" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="OOG-o3-YWq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQm-9X-kF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="137"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_localizar_on" width="75" height="75"/>
+    </resources>
 </document>
