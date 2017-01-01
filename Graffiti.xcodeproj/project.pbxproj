@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		C19E2B0C1E11ABF800458DF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B0B1E11ABF800458DF7 /* AppDelegate.swift */; };
-		C19E2B0E1E11ABF800458DF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B0D1E11ABF800458DF7 /* ViewController.swift */; };
+		C19E2B0E1E11ABF800458DF7 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B0D1E11ABF800458DF7 /* CurrentLocationViewController.swift */; };
 		C19E2B111E11ABF800458DF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19E2B0F1E11ABF800458DF7 /* Main.storyboard */; };
 		C19E2B131E11ABF800458DF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C19E2B121E11ABF800458DF7 /* Assets.xcassets */; };
 		C19E2B161E11ABF800458DF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C19E2B141E11ABF800458DF7 /* LaunchScreen.storyboard */; };
 		C19E2B1F1E192C2900458DF7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C19E2B1E1E192C2900458DF7 /* MapKit.framework */; };
 		C19E2B211E192E0400458DF7 /* GraffitiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */; };
+		C19E2B231E192FFC00458DF7 /* Graffiti.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B221E192FFC00458DF7 /* Graffiti.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C19E2B081E11ABF800458DF7 /* Graffiti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graffiti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C19E2B0B1E11ABF800458DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C19E2B0D1E11ABF800458DF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C19E2B0D1E11ABF800458DF7 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		C19E2B101E11ABF800458DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C19E2B121E11ABF800458DF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C19E2B151E11ABF800458DF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C19E2B171E11ABF800458DF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C19E2B1E1E192C2900458DF7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiDetailsViewController.swift; sourceTree = "<group>"; };
+		C19E2B221E192FFC00458DF7 /* Graffiti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graffiti.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +63,13 @@
 			isa = PBXGroup;
 			children = (
 				C19E2B0B1E11ABF800458DF7 /* AppDelegate.swift */,
-				C19E2B0D1E11ABF800458DF7 /* ViewController.swift */,
+				C19E2B0D1E11ABF800458DF7 /* CurrentLocationViewController.swift */,
 				C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */,
 				C19E2B0F1E11ABF800458DF7 /* Main.storyboard */,
 				C19E2B121E11ABF800458DF7 /* Assets.xcassets */,
 				C19E2B141E11ABF800458DF7 /* LaunchScreen.storyboard */,
 				C19E2B171E11ABF800458DF7 /* Info.plist */,
+				C19E2B221E192FFC00458DF7 /* Graffiti.swift */,
 			);
 			path = Graffiti;
 			sourceTree = "<group>";
@@ -152,7 +155,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C19E2B0E1E11ABF800458DF7 /* ViewController.swift in Sources */,
+				C19E2B0E1E11ABF800458DF7 /* CurrentLocationViewController.swift in Sources */,
+				C19E2B231E192FFC00458DF7 /* Graffiti.swift in Sources */,
 				C19E2B0C1E11ABF800458DF7 /* AppDelegate.swift in Sources */,
 				C19E2B211E192E0400458DF7 /* GraffitiDetailsViewController.swift in Sources */,
 			);
