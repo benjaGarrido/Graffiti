@@ -33,6 +33,7 @@ class CurrentLocationViewController: UIViewController {
     }
     
     let locationManager = CLLocationManager()
+    let geocoder = CLGeocoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,8 +86,63 @@ class CurrentLocationViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    func stringFromPlacemark(placemark: CLPlacemark) ->String {
+        var line1 = ""
+        //Nombre de la calle
+        if let s = placemark.thoroughfare {
+            line1 += s + ", "
+        }
+        //Numero de la calle
+        if let s = placemark.subThoroughfare {
+            line1 += s
+        }
+        var line2 = ""
+        //Codigo postal
+        if let s = placemark.postalCode {
+            line2 += s + " "
+        }
+        //Localidad
+        if let s = placemark.locality {
+            line2 += s
+        }
+        var line3 = ""
+        //Localidad
+        if let s = placemark.administrativeArea {
+            line3 += s + " "
+        }
+        //País
+        if let s = placemark.country {
+            line3 += s
+        }
+        return line1 + "\n" + line2  + "\n" + line3
+    }
+    
 }
 
 extension CurrentLocationViewController: CLLocationManagerDelegate {
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("***** Error en Core Location *****")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //Nos aseguramos de que tenemos una localizacion
+        guard let newLocation = locations.last else { return }
+        
+        let latitude = Double(newLocation.coordinate.latitude)
+        let longitude = Double(newLocation.coordinate.longitude)
+        
+        geocoder.reverseGeocodeLocation(newLocation) { (placemarks, error) in
+            //Si no tenemos error
+            if error == nil {
+                var address = "No se ha podido determinar"
+                if let placemark = placemarks?.last {
+                    address = self.stringFromPlacemark(placemark)
+                }
+                self.graffiti = Graffiti(address: address, latitude: latitude, longitude: longitude, imageName: "")
+            }
+            self.updatingLocation = false
+            self.tagButton.isEnabled = true
+        }
+    }
 }
