@@ -33,7 +33,7 @@
                                 </constraints>
                                 <state key="normal" image="btn_localizar_on"/>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pdR-5P-EeH">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pdR-5P-EeH">
                                 <rect key="frame" x="177" y="569" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Graffiti Details View Controller-->
         <scene sceneID="VZA-8W-yz5">
             <objects>
-                <viewController id="8jV-n3-2q7" sceneMemberID="viewController">
+                <viewController id="8jV-n3-2q7" customClass="GraffitiDetailsViewController" customModule="Graffiti" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wfb-SV-Nbh"/>
                         <viewControllerLayoutGuide type="bottom" id="PDv-J2-oe3"/>
@@ -148,7 +148,17 @@
                             <constraint firstItem="QIf-rk-0FW" firstAttribute="top" secondItem="QLq-gl-Lhk" secondAttribute="bottom" constant="3" id="lxH-v1-bi2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dDA-mp-pLi"/>
+                    <navigationItem key="navigationItem" id="dDA-mp-pLi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Og4-ky-Bdu">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="8jV-n3-2q7" id="8jx-cc-heq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JRa-oV-BiM">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIW-1f-W65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
