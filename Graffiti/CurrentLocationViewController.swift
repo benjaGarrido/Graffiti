@@ -137,7 +137,7 @@ extension CurrentLocationViewController: CLLocationManagerDelegate {
             if error == nil {
                 var address = "No se ha podido determinar"
                 if let placemark = placemarks?.last {
-                    address = self.stringFromPlacemark(placemark)
+                    address = self.stringFromPlacemark(placemark: placemark)
                 }
                 self.graffiti = Graffiti(address: address, latitude: latitude, longitude: longitude, imageName: "")
             }

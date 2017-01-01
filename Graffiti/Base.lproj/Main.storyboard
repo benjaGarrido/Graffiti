@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="peN-ys-zSr">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="peN-ys-zSr">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60C-Bt-SAp">
@@ -164,10 +164,18 @@
                                 <action selector="cancelPressed:" destination="8jV-n3-2q7" id="8jx-cc-heq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="JRa-oV-BiM">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="JRa-oV-BiM">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnSave" destination="JRa-oV-BiM" id="b6M-fb-PkB"/>
+                        <outlet property="imgGraffiti" destination="Q2i-Do-VpQ" id="E6Y-fB-hK8"/>
+                        <outlet property="lblAddress" destination="ntX-Ja-r1I" id="7TE-Gh-TmV"/>
+                        <outlet property="lblLatitude" destination="f9o-x0-kSX" id="BfN-Ns-fVA"/>
+                        <outlet property="lblLongitud" destination="hea-AO-sb0" id="9VE-F0-ddS"/>
+                        <outlet property="lblLongitude" destination="hea-AO-sb0" id="vOD-JC-I2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIW-1f-W65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
