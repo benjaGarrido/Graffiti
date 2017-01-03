@@ -10,12 +10,17 @@ import UIKit
 import MapKit
 
 class CurrentLocationViewController: UIViewController {
+    
     @IBOutlet weak var getButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tagButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var graffiti: Graffiti?
+    
+    let locationManager = CLLocationManager()
+    let geocoder = CLGeocoder()
+    
     var updatingLocation = false {
         didSet {
             if updatingLocation {
@@ -31,9 +36,6 @@ class CurrentLocationViewController: UIViewController {
             }
         }
     }
-    
-    let locationManager = CLLocationManager()
-    let geocoder = CLGeocoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,13 +68,11 @@ class CurrentLocationViewController: UIViewController {
                 self.updatingLocation = true
                 self.tagButton.isEnabled = false
                 
-                //Creamos los delegados del locationManager
                 locationManager.delegate = self
-                //Definimos el nivel de preción que queremos en la localización
                 locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-                //Pedimos que haga la localizacion
                 locationManager.requestLocation()
-                //Realizamos un zoom en el mapView (definimos una región alrededor de 1km)
+                
+                //hacemos zoom sobre la localización del usuario
                 let region = MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, 1000, 1000)
                 mapView.setRegion(mapView.regionThatFits(region), animated: true)
             }
@@ -117,29 +117,42 @@ class CurrentLocationViewController: UIViewController {
         return line1 + "\n" + line2  + "\n" + line3
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TagGraffiti" {
+            let navigationController = segue.destination as! UINavigationController
+            let detailsViewController = navigationController.topViewController as! GraffitiDetailsViewController
+            detailsViewController.taggedGraffiti = self.graffiti
+            detailsViewController.delegate = self
+        }
+    }
 }
 
-extension CurrentLocationViewController: CLLocationManagerDelegate {
+extension CurrentLocationViewController: GraffitiDetailsViewControllerDelegate {
+    func graffitiDidFinishGetTagged(sender: GraffitiDetailsViewController, taggedGraffiti: Graffiti) {
+        
+    }
+}
+
+extension CurrentLocationViewController: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("***** Error en Core Location *****")
+        print("******* Error en Core Location *******")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        //Nos aseguramos de que tenemos una localizacion
+        
         guard let newLocation = locations.last else { return }
         
         let latitude = Double(newLocation.coordinate.latitude)
         let longitude = Double(newLocation.coordinate.longitude)
         
         geocoder.reverseGeocodeLocation(newLocation) { (placemarks, error) in
-            //Si no tenemos error
             if error == nil {
                 var address = "No se ha podido determinar"
                 if let placemark = placemarks?.last {
                     address = self.stringFromPlacemark(placemark: placemark)
                 }
-                self.graffiti = Graffiti(address: address, latitude: latitude, longitude: longitude, imageName: "")
+                self.graffiti = Graffiti(address: address, latitude: latitude, longitude: longitude, image: "")
             }
             self.updatingLocation = false
             self.tagButton.isEnabled = true

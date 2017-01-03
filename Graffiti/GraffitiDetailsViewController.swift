@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol GraffitiDetailsViewControllerDelegate: class {
+    func graffitiDidFinishGetTagged (sender: GraffitiDetailsViewController, taggedGraffiti: Graffiti)
+}
+
 class GraffitiDetailsViewController: UIViewController {
+    
+    weak var delegate: GraffitiDetailsViewControllerDelegate?
+    
     @IBOutlet weak var imgGraffiti: UIImageView!
     @IBOutlet weak var lblLongitude: UILabel!
     @IBOutlet weak var lblLatitude: UILabel!
@@ -37,13 +44,14 @@ class GraffitiDetailsViewController: UIViewController {
     func configureLabels() {
         lblLatitude.text = String(format: "%.8f", (taggedGraffiti?.coordinate.latitude)!)
         lblLongitude.text = String(format: "%.8f", (taggedGraffiti?.coordinate.longitude)!)
-        lblAddress.text = (taggedGraffiti?.graffitiAddress)!
+        lblAddress.text = taggedGraffiti?.graffitiAddress
     }
 }
 
 extension GraffitiDetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func takePictureTapped () {
-        if UIImagePickerController.isSourceTypeAvailable(.camera){
+    
+    func takePictureTapped() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             showPhotoMenu()
         } else {
             choosePhotoFromLibrary()
@@ -55,7 +63,7 @@ extension GraffitiDetailsViewController: UIImagePickerControllerDelegate, UINavi
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         
-        let takePhotoAction = UIAlertAction(title: "Sacar Foto", style: .default) { _ in
+        let takePhotoAction = UIAlertAction(title: "Sacar foto", style: .default) { _ in
             self.takePhotoWithCamera()
         }
         alertController.addAction(takePhotoAction)
@@ -95,7 +103,9 @@ extension GraffitiDetailsViewController: UIImagePickerControllerDelegate, UINavi
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
 }
+
 
 
 

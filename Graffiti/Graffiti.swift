@@ -16,11 +16,11 @@ class Graffiti: NSObject {
     let graffitiLongitude : Double
     let graffitiImageName : String
     
-    init(address: String, latitude: Double, longitude: Double, imageName: String) {
+    init(address: String, latitude: Double, longitude: Double, image: String) {
         self.graffitiAddress = address
         self.graffitiLatitude = latitude
         self.graffitiLongitude = longitude
-        self.graffitiImageName = imageName
+        self.graffitiImageName = image
     }
 }
 
