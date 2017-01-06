@@ -15,6 +15,7 @@
 		C19E2B1F1E192C2900458DF7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C19E2B1E1E192C2900458DF7 /* MapKit.framework */; };
 		C19E2B211E192E0400458DF7 /* GraffitiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */; };
 		C19E2B231E192FFC00458DF7 /* Graffiti.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B221E192FFC00458DF7 /* Graffiti.swift */; };
+		C19E2B4C1E2026FE00458DF7 /* GraffitiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B4B1E2026FE00458DF7 /* GraffitiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C19E2B1E1E192C2900458DF7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiDetailsViewController.swift; sourceTree = "<group>"; };
 		C19E2B221E192FFC00458DF7 /* Graffiti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graffiti.swift; sourceTree = "<group>"; };
+		C19E2B4B1E2026FE00458DF7 /* GraffitiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				C19E2B141E11ABF800458DF7 /* LaunchScreen.storyboard */,
 				C19E2B171E11ABF800458DF7 /* Info.plist */,
 				C19E2B221E192FFC00458DF7 /* Graffiti.swift */,
+				C19E2B4B1E2026FE00458DF7 /* GraffitiManager.swift */,
 			);
 			path = Graffiti;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			files = (
 				C19E2B0E1E11ABF800458DF7 /* CurrentLocationViewController.swift in Sources */,
 				C19E2B231E192FFC00458DF7 /* Graffiti.swift in Sources */,
+				C19E2B4C1E2026FE00458DF7 /* GraffitiManager.swift in Sources */,
 				C19E2B0C1E11ABF800458DF7 /* AppDelegate.swift in Sources */,
 				C19E2B211E192E0400458DF7 /* GraffitiDetailsViewController.swift in Sources */,
 			);
