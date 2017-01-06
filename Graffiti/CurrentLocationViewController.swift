@@ -131,6 +131,11 @@ class CurrentLocationViewController: UIViewController {
             detailsViewController.taggedGraffiti = self.graffiti
             detailsViewController.delegate = self
         }
+        if segue.identifier == "showPinImage" {
+            let navigationController = segue.destination as! UINavigationController
+            let graffitiImageViewController = navigationController.topViewController as! GraffitiImageViewController
+            graffitiImageViewController.selectedCallout = selectedCalloutImage
+        }
     }
 }
 
@@ -200,7 +205,7 @@ extension CurrentLocationViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.leftCalloutAccessoryView{
-            //performSegue(withIdentifier: "showPinImage", sender: view)
+            performSegue(withIdentifier: "showPinImage", sender: view)
         }
     }
     

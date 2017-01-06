@@ -16,6 +16,7 @@
 		C19E2B211E192E0400458DF7 /* GraffitiDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */; };
 		C19E2B231E192FFC00458DF7 /* Graffiti.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B221E192FFC00458DF7 /* Graffiti.swift */; };
 		C19E2B4C1E2026FE00458DF7 /* GraffitiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B4B1E2026FE00458DF7 /* GraffitiManager.swift */; };
+		C19E2B4E1E2035E000458DF7 /* GraffitiImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19E2B4D1E2035E000458DF7 /* GraffitiImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiDetailsViewController.swift; sourceTree = "<group>"; };
 		C19E2B221E192FFC00458DF7 /* Graffiti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graffiti.swift; sourceTree = "<group>"; };
 		C19E2B4B1E2026FE00458DF7 /* GraffitiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiManager.swift; sourceTree = "<group>"; };
+		C19E2B4D1E2035E000458DF7 /* GraffitiImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraffitiImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				C19E2B0B1E11ABF800458DF7 /* AppDelegate.swift */,
 				C19E2B0D1E11ABF800458DF7 /* CurrentLocationViewController.swift */,
 				C19E2B201E192E0400458DF7 /* GraffitiDetailsViewController.swift */,
+				C19E2B4D1E2035E000458DF7 /* GraffitiImageViewController.swift */,
 				C19E2B0F1E11ABF800458DF7 /* Main.storyboard */,
 				C19E2B121E11ABF800458DF7 /* Assets.xcassets */,
 				C19E2B141E11ABF800458DF7 /* LaunchScreen.storyboard */,
@@ -162,6 +165,7 @@
 				C19E2B231E192FFC00458DF7 /* Graffiti.swift in Sources */,
 				C19E2B4C1E2026FE00458DF7 /* GraffitiManager.swift in Sources */,
 				C19E2B0C1E11ABF800458DF7 /* AppDelegate.swift in Sources */,
+				C19E2B4E1E2035E000458DF7 /* GraffitiImageViewController.swift in Sources */,
 				C19E2B211E192E0400458DF7 /* GraffitiDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

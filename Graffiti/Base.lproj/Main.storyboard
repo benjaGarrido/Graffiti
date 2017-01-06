@@ -65,11 +65,52 @@
                         <outlet property="getButton" destination="60C-Bt-SAp" id="F8A-vL-RKt"/>
                         <outlet property="mapView" destination="peN-ys-zSr" id="jSH-XP-dHf"/>
                         <outlet property="tagButton" destination="J7e-2o-NN0" id="wTp-6D-BDN"/>
+                        <segue destination="5PJ-RU-4Y1" kind="presentation" identifier="showPinImage" id="ljT-P2-1O6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+        </scene>
+        <!--Graffiti Image View Controller-->
+        <scene sceneID="ZKH-Vu-kMP">
+            <objects>
+                <viewController id="Y1E-mF-s3u" customClass="GraffitiImageViewController" customModule="Graffiti" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uob-E6-Jeq"/>
+                        <viewControllerLayoutGuide type="bottom" id="tEo-Sc-IxC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q11-Bf-XxL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Trn-q0-3ji">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019607843" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tEo-Sc-IxC" firstAttribute="top" secondItem="Trn-q0-3ji" secondAttribute="bottom" id="6HD-1V-ZfM"/>
+                            <constraint firstAttribute="trailing" secondItem="Trn-q0-3ji" secondAttribute="trailing" id="SNJ-Hh-Q8B"/>
+                            <constraint firstItem="Trn-q0-3ji" firstAttribute="top" secondItem="uob-E6-Jeq" secondAttribute="bottom" id="eZo-6E-9AX"/>
+                            <constraint firstItem="Trn-q0-3ji" firstAttribute="leading" secondItem="q11-Bf-XxL" secondAttribute="leading" id="mnQ-42-XwD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="igM-Ai-yTt">
+                        <barButtonItem key="leftBarButtonItem" title="Cerrar" id="82E-wR-cgj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="Y1E-mF-s3u" id="WyM-LS-Elt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imgGraffiti" destination="Trn-q0-3ji" id="ZdA-2p-PcD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7tI-NV-QdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2010" y="1011"/>
         </scene>
         <!--Graffiti Details View Controller-->
         <scene sceneID="VZA-8W-yz5">
@@ -220,6 +261,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNm-o7-9Uu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1824.8" y="142.57871064467767"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="95D-Nd-r0q">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5PJ-RU-4Y1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ov4-Kn-qcB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y1E-mF-s3u" kind="relationship" relationship="rootViewController" id="dOa-hk-kGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R3Y-JV-51D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="1011"/>
         </scene>
     </scenes>
     <resources>
