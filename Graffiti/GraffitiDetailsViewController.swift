@@ -28,6 +28,26 @@ class GraffitiDetailsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func saveGraffiti(_ sender: Any) {
+        if let image = imgGraffiti.image {
+            let randomName = UUID().uuidString.appending(".png")
+            if let url = GraffitiManager.sharedInstance.imagesURL()?.appendingPathComponent(randomName),
+                let imageData = UIImagePNGRepresentation(image){
+                do {
+                    try imageData.write(to: url)
+                } catch (let error) {
+                    print("Error salvando la imagen: \(error)")
+                }
+            }
+            
+            taggedGraffiti = Graffiti(address: lblAddress.text!, latitude: Double(lblLatitude.text!)!, longitude: Double(lblLongitude.text!)!, image: randomName)
+            
+            if let taggedGraffiti = taggedGraffiti {
+                delegate?.graffitiDidFinishGetTagged(sender: self, taggedGraffiti: taggedGraffiti)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Asignamos la imagen del navbar

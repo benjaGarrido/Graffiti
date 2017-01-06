@@ -166,6 +166,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="JRa-oV-BiM">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="saveGraffiti:" destination="8jV-n3-2q7" id="tQ9-te-gHu"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
