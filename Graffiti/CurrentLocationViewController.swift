@@ -17,6 +17,7 @@ class CurrentLocationViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var graffiti: Graffiti?
+    var selectedCalloutImage: UIImage?
     
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
@@ -160,5 +161,41 @@ extension CurrentLocationViewController: CLLocationManagerDelegate{
             self.updatingLocation = false
             self.tagButton.isEnabled = true
         }
+    }
+}
+
+extension CurrentLocationViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "graffitiPin")
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "graffitiPin")
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if let place = annotation as? Graffiti {
+            let imageName = place.graffitiImageName
+            if let imagesURL = GraffitiManager.sharedInstance.imagesURL() {
+                let imageData = try! Data(contentsOf: imagesURL.appendingPathComponent(imageName))
+            }
+            selectedCalloutImage = UIImage(data: imageData)
+            
+        }
+    }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGReact(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
     }
 }
