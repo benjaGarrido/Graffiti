@@ -49,9 +49,13 @@ class CurrentLocationViewController: UIViewController {
         
         // Siempre que accedemos a la vista la variable debe estar a false
         updatingLocation = false
-        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        mapView.delegate = self
+        mapView.addAnnotations(GraffitiManager.sharedInstance.graffitis)
+    }
+    
     @IBAction func getLocation(_ sender: Any) {
         startLocationManager()
     }
@@ -182,9 +186,21 @@ extension CurrentLocationViewController: MKMapViewDelegate {
             let imageName = place.graffitiImageName
             if let imagesURL = GraffitiManager.sharedInstance.imagesURL() {
                 let imageData = try! Data(contentsOf: imagesURL.appendingPathComponent(imageName))
+                selectedCalloutImage = UIImage(data: imageData)
+                let image = resizeImage(image: selectedCalloutImage!, newWidth: 40.0)
+                let btnImageView = UIButton(frame: CGRect(x: 0, y: 0, width: 40.0, height: 40.0))
+                btnImageView.setImage(image, for: .normal)
+                annotationView?.leftCalloutAccessoryView = btnImageView
+                annotationView?.image = UIImage(named: "img_pin")
+                annotationView?.canShowCallout = true
             }
-            selectedCalloutImage = UIImage(data: imageData)
-            
+        }
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.leftCalloutAccessoryView{
+            //performSegue(withIdentifier: "showPinImage", sender: view)
         }
     }
     
@@ -192,7 +208,7 @@ extension CurrentLocationViewController: MKMapViewDelegate {
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
-        image.draw(in: CGReact(x: 0, y: 0, width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
